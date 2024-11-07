@@ -1,0 +1,42 @@
+package day9;
+
+class CarDetails
+{
+	private String name;
+	private int mileage;
+	private int cost;
+	
+	public void setData(String name, int mileage, int cost)//setter method
+	{
+		this.name = name;
+		this.mileage = mileage;
+		this.cost = cost;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	public int getMileage()
+	{
+		return mileage;
+	}
+	public int getCost()
+	{
+		return cost;
+	}
+}
+public class Car {
+
+	public static void main(String[] args) {
+		CarDetails c = new CarDetails();
+		
+		c.setData("BMW",10, 7000000);
+		System.out.println(c.getName());
+		System.out.println(c.getMileage());
+		System.out.println(c.getCost());
+		
+
+	}
+
+}
