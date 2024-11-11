@@ -1,0 +1,107 @@
+
+1] -----------------------more Flow control parameter passing:-----------------------------------
+
+package Abstract; 
+import java.util.Scanner; 
+public class EmployeeSalary { 
+           // Method to calculate and print the gross salary of an employee 
+public static void calculateSalary(double basicSalary) { 
+        double HRA, DA, grossSalary; 
+      // Calculate HRA and DA based on the basic salary 
+        if (basicSalary > 15000) { 
+        HRA = basicSalary * 0.20; // 20% of basic salary 
+         DA = basicSalary * 0.60; // 60% of basic salary 
+  }
+	 else
+	 { 
+        HRA = 3000;          // Fixed HRA for salary <= 15,000 
+        DA = basicSalary * 0.70;      // 70% of basic salary 
+     } 
+         // Calculate gross salary 
+		 
+      grossSalary = basicSalary + HRA + DA; 
+          // Display the gross salary 
+        System.out.println("Basic Salary: " + basicSalary); 
+        System.out.println("HRA: " + HRA); 
+        System.out.println("DA: " + DA); 
+        System.out.println("Gross Salary: " + grossSalary); 
+   } 
+  public static void main(String[] args) { 
+          // TODO Auto-generated method stub 
+       Scanner scanner = new Scanner(System.in); 
+       int choice; 
+       do 
+	   { 
+          System.out.print("Enter the basic salary of the employee: "); 
+          double basicSalary = scanner.nextDouble();  
+          calculateSalary(basicSalary); 
+          System.out.print("Enter -1 to exit or any other number to continue: "); 
+          choice = scanner.nextInt(); 
+       } 
+	   while (choice != -1); // Loop continues until user enters -1 
+               // Close the scanner 
+           scanner.close(); 
+          System.out.println("Program exited. Goodbye!");
+   }
+}
+---------------output:--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Enter the basic salary of the employee: 10000 
+Basic Salary: 10000.0 
+HRA: 3000.0 
+DA: 7000.0 
+Gross Salary: 20000.0 
+Enter -1 to exit or any other number to continue: 18000 
+Enter the basic salary of the employee: 20000 
+Basic Salary: 20000.0 
+HRA: 4000.0 
+DA: 12000.0 
+Gross Salary: 36000.0 
+Enter -1 to exit or any other number to continue: -1 
+Program exited. Goodbye!
+---------------------------------------------------------------------------------------------------------------------------------------------------
+2]lab program
+
+
+package Abstract; 
+import java.util.Scanner; 
+public class ArmstrongNumber { 
+              // Method to print Armstrong numbers in a given range 
+public static void printArmstrongNumber(int start, int end) { 
+            // Loop through the range from start to end 
+      for (int num = start; num <= end; num++) { 
+      int originalNum = num; 
+      int sum = 0; 
+         // Calculate the sum of cubes of the digits 
+      while (num > 0) { 
+      int digit = num % 10; // Get the last digit 
+      sum += digit * digit * digit; // Cube the digit and add to sum 
+      num /= 10; // Remove the last digit 
+   } 
+       // Check if the sum of cubes equals the original number 
+      if (sum == originalNum) { 
+      System.out.println( originalNum +" is an Armstrong number."); 
+     } 
+    } 
+   } 
+ public static void main(String[] args) { 
+              // TODO Auto-generated method stub 
+        Scanner scanner = new Scanner(System.in); 
+        System.out.print("Enter the start of the range: "); 
+        int start = scanner.nextInt(); 
+        System.out.print("Enter the end of the range: "); 
+        int end = scanner.nextInt(); 
+        printArmstrongNumber(start, end); 
+               // Close scanner 
+         scanner.close(); 
+       } 
+   }
+--------------------output----------------------------------------------------------------------------------------------------------------------------
+Enter the start of the range: 100 
+Enter the end of the range: 999 
+153 is an Armstrong number. 
+370 is an Armstrong number. 
+371 is an Armstrong number. 
+407 is an Armstrong number.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+3] lab program:
+
