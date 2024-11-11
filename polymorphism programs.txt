@@ -1,0 +1,108 @@
+polymorphism
+1] program:
+
+
+package Polymorphisam; 
+          //Base class Vehicle 
+class Vehicle { 
+          // Method to be overridden by subclasses 
+public void start() { 
+        System.out.println("Vehicle started."); 
+    } 
+  } 
+      //Subclass Car that overrides the start method 
+       class Car extends Vehicle { 
+     @Override 
+public void start() { 
+       System.out.println("Car started."); 
+    } 
+  } 
+      / /Subclass Motorcycle that overrides the start method 
+      class Motorcycle extends Vehicle { 
+      @Override 
+public void start() { 
+        System.out.println("Motorcycle started."); 
+    } 
+  } 
+          //Garage class with a method to service a vehicle 
+class Garage { 
+         // Method that takes a Vehicle object and calls its start method 
+public void serviceVehicle(Vehicle vehicle) { 
+         vehicle.start(); // Calls the start method of the provided vehicle 
+         System.out.println("Vehicle serviced."); 
+    } 
+  } 
+public class Motorcycle1 { 
+public static void main(String[] args) { 
+         // Create instances of Car and Motorcycle 
+          Vehicle car = new Car(); 
+          Vehicle motorcycle = new Motorcycle(); 
+          Garage garage = new Garage(); 
+
+           garage.serviceVehicle(car); 
+           garage.serviceVehicle(motorcycle); 
+     } 
+  }
+-----------output:-----------------
+Car started. 
+Vehicle serviced. 
+Motorcycle started. 
+Vehicle serviced.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2]lab program
+
+package Polymorphisam; 
+            //Class representing a Student 
+class Student { 
+             // Instance variables (fields) 
+         String name; 
+         int age; 
+         String department; 
+           // Default constructor 
+public Student() { 
+    this.name = "Unknown"; 
+    this.age = 20; 
+    this.department = "Unassigned"; 
+   } 
+                  // Constructor that takes two parameters: name and age, and sets department to "IT" 
+public Student(String name, int age) { 
+    this.name = name; 
+    this.age = age; 
+    this.department = "IT"; 
+   } 
+// Constructor that takes three parameters: name, age, and department 
+public Student(String name, int age, String department) { 
+    this.name = name; 
+    this.age = age; 
+    this.department = department; 
+  } 
+     // Method to print details of the student 
+public void printDetails() { 
+       System.out.println("Name: " + name); 
+       System.out.println("Age: " + age); 
+       System.out.println("Department: " + department); 
+       System.out.println(); // Empty line for better readability 
+   } 
+} 
+public class StudentDetails { 
+public static void main(String[] args) { 
+
+      Student student1 = new Student(); 
+      student1.printDetails(); 
+      Student student2 = new Student("Akshata", 22); 
+      student2.printDetails(); 
+      Student student3 = new Student("Adarsha", 21, "Engineering"); 
+       student3.printDetails(); 
+    } 
+ }
+-----------output-----------------
+Name: Unknown 
+Age: 20 
+Department: Unassigned 
+Name: Akshata 
+Age: 22 
+Department: IT 
+Name: Adarsha 
+Age: 21 
+Department: Engineering
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
