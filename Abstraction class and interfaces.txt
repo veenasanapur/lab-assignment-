@@ -1,0 +1,92 @@
+Abstraction class and interfaces (lab programs)
+1]
+package Abstract; 
+           // Abstract class Shape 
+     abstract class Shape { 
+
+public abstract double calculateArea(); 
+   } 
+
+class Circle extends Shape { 
+     private double radius; 
+
+public Circle(double radius) { 
+     this.radius = radius; 
+ } 
+
+@Override 
+public double calculateArea() { 
+    return Math.PI * radius * radius; // Area of a circle: πr² 
+     } 
+  } 
+// Rectangle class inheriting from Shape 
+class Rectangle extends Shape { 
+         private double width; 
+         private double height; 
+// Constructor to initialize the width and height of the rectangle 
+public Rectangle(double width, double height) { 
+       this.width = width; 
+       this.height = height; 
+  } 
+// Implementation of calculateArea for a Rectangle 
+@Override 
+public double calculateArea() { 
+        return width * height;     // Area of a rectangle: width * height 
+  } 
+} 
+public class Rectangle1 { 
+
+public static void main(String[] args) { 
+
+       Shape circle = new Circle(5); 
+       System.out.println("Area of Circle: " + circle.calculateArea()); 
+       Shape rectangle = new Rectangle(4, 7); 
+       System.out.println("Area of Rectangle: " + rectangle.calculateArea()); 
+     } 
+  }
+-------------output:--------------
+Area of Circle: 78.53981633974483 
+Area of Rectangle: 28.0
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2] lab programs
+
+package Abstract; 
+                      //Superclass Animal 
+class Animal { 
+      // Method that will be overridden in subclasses 
+public void makeSound() { 
+    System.out.println("The animal makes a sound"); 
+   } 
+ } 
+    //Subclass Dog inheriting from Animal 
+class Dog extends Animal { 
+      // Overriding makeSound method for Dog 
+     @Override 
+public void makeSound() { 
+    System.out.println("The Dog barks"); 
+   } 
+} 
+ 
+class Cat extends Animal { 
+    // Overriding makeSound method for Cat 
+    @Override 
+public void makeSound() { 
+    System.out.println("The Cat meows"); 
+    } 
+} 
+public class MultilevelInheritance { 
+public static void main(String[] args) { 
+
+     Animal myDog = new Dog(); 
+     myDog.makeSound(); // The Dog barks 
+     Animal myCat = new Cat(); 
+     myCat.makeSound(); // The Cat meows 
+     Animal myAnimal = new Animal(); 
+     myAnimal.makeSound(); // The animal makes a sound
+	 }
+ }
+------------output---------------
+The Dog barks 
+The Cat meows 
+The animal makes a sound
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
