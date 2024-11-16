@@ -1,0 +1,209 @@
+session -5 Lab
+1]
+
+import java.util.Random;
+
+public class ThreeDArrayOperations {
+
+    public static void main(String[] args) {
+        // Initialize the 3D array with dimensions 3x3x3 (3 layers, 3 rows, 3 columns)
+        int[][][] array = new int[3][3][3];
+
+        // 1. Initializing the 3D array with random values between 1 and 100
+        initializeArrayWithRandomValues(array);
+
+        // 2. Finding the maximum value in the array
+        int maxValue = findMax(array);
+        System.out.println("Maximum value in the array: " + maxValue);
+
+        // 3. Calculating the average of all elements in the 3D array
+        double average = calculateAverage(array);
+        System.out.println("Average of all elements: " + average);
+
+        // 4. Displaying the 3D array
+        System.out.println("\nThe 3D Array:");
+        print3DArray(array);
+    }
+
+    // Method to initialize the 3D array with random values between 1 and 100
+    public static void initializeArrayWithRandomValues(int[][][] array) {
+        Random rand = new Random();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                for (int k = 0; k < array[i][j].length; k++) {
+                    array[i][j][k] = rand.nextInt(100) + 1; // Random values between 1 and 100
+                }
+            }
+        }
+    }
+
+    // Method to find the maximum value in the 3D array
+    public static int findMax(int[][][] array) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                for (int k = 0; k < array[i][j].length; k++) {
+                    if (array[i][j][k] > max) {
+                        max = array[i][j][k];
+                    }
+                }
+            }
+        }
+        return max;
+    }
+
+    // Method to calculate the average of all elements in the 3D array
+    public static double calculateAverage(int[][][] array) {
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                for (int k = 0; k < array[i][j].length; k++) {
+                    sum += array[i][j][k];
+                    count++;
+                }
+            }
+        }
+        return (double) sum / count;
+    }
+
+    // Method to print the 3D array in a structured format
+    public static void print3DArray(int[][][] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Layer " + (i + 1) + ":");
+            for (int j = 0; j < array[i].length; j++) {
+                for (int k = 0; k < array[i][j].length; k++) {
+                    System.out.print(array[i][j][k] + " ");
+                }
+                System.out.println(); // New line after each row
+            }
+            System.out.println(); // New line after each layer
+        }
+    }
+}
+----------------output------------------------------------
+Maximum value in the array: 97
+Average of all elements: 49.407407407407405
+
+The 3D Array:
+Layer 1:
+62 94 38 
+54 48 8 
+41 58 69 
+
+Layer 2:
+82 96 72 
+27 57 29 
+1 17 71 
+
+Layer 3:
+73 13 61 
+10 42 60 
+29 35 22 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2]
+ 
+ import java.util.Scanner;
+
+public class MatrixAddition {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Take matrix dimensions from the user
+        System.out.print("Enter the number of rows for the matrices: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns for the matrices: ");
+        int cols = scanner.nextInt();
+        
+        // Create two matrices to store values
+        Integer[][] matrix1 = new Integer[rows][cols];
+        Integer[][] matrix2 = new Integer[rows][cols];
+        
+        // Take input for the first matrix
+        System.out.println("Enter elements for Matrix 1:");
+        inputMatrix(matrix1, rows, cols, scanner);
+        
+        // Take input for the second matrix
+        System.out.println("Enter elements for Matrix 2:");
+        inputMatrix(matrix2, rows, cols, scanner);
+        
+        // Add the matrices
+        Integer[][] resultMatrix = addMatrices(matrix1, matrix2, rows, cols);
+        
+        // Display the matrices and the result
+        System.out.println("\nMatrix 1:");
+        displayMatrix(matrix1);
+        
+        System.out.println("\nMatrix 2:");
+        displayMatrix(matrix2);
+        
+        System.out.println("\nResulting Matrix after Addition:");
+        displayMatrix(resultMatrix);
+        
+        scanner.close();
+    }
+    
+    // Method to take input for a matrix
+    public static void inputMatrix(Integer[][] matrix, int rows, int cols, Scanner scanner) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print("Enter element at position (" + (i + 1) + "," + (j + 1) + "): ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+
+    // Method to perform matrix addition
+    public static Integer[][] addMatrices(Integer[][] matrix1, Integer[][] matrix2, int rows, int cols) {
+        Integer[][] result = new Integer[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        return result;
+    }
+
+    // Method to display a matrix
+    public static void displayMatrix(Integer[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+---------------------------------output-----------------------------------
+
+
+Enter the number of rows for the matrices: 2
+Enter the number of columns for the matrices: 3
+Enter elements for Matrix 1:
+Enter element at position (1,1): 1
+Enter element at position (1,2): 2
+Enter element at position (1,3): 3
+Enter element at position (2,1): 4
+Enter element at position (2,2): 5
+Enter element at position (2,3): 6
+
+Enter elements for Matrix 2:
+Enter element at position (1,1): 7
+Enter element at position (1,2): 8
+Enter element at position (1,3): 9
+Enter element at position (2,1): 10
+Enter element at position (2,2): 11
+Enter element at position (2,3): 12
+
+Matrix 1:
+1 2 3 
+4 5 6 
+
+Matrix 2:
+7 8 9 
+10 11 12 
+
+Resulting Matrix after Addition:
+8 10 12 
+14 16 18 
